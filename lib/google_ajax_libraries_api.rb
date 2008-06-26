@@ -27,10 +27,10 @@ module RPH
       
       module InstanceMethods
         def google_js_library_for(*libraries)
-          options = libs.last.is_a?(Hash) ? libs.pop : {}
+          options = libraries.last.is_a?(Hash) ? libraries.pop : {}
           
           if libraries.size == 1
-            return javascript_include_tag(Api.new(libraries.first, options))
+            return javascript_include_tag(Api.new(libraries.first, options).path)
           else
             options.delete(:version)
           end
