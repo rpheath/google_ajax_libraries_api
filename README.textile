@@ -1,0 +1,9 @@
+h1. Google Ajax Libraries API (for Rails)
+
+http://code.google.com/apis/ajaxlibs/
+
+(to be continued...)
+
+h2. License
+
+Copyright (c) 2008 Ryan Heath, released under the MIT license
