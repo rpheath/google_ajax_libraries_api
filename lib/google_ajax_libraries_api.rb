@@ -1,5 +1,5 @@
 %w(constants error).each do |f| 
-  require File.join(File.dirname(__FILE__), "google/#{f}")
+  require File.join(File.dirname(__FILE__), "google_ajax_libraries_api/#{f}")
 end
 
 # Implements Google Ajax Libraries API as a Rails plugin
