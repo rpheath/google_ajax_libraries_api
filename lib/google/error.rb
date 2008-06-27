@@ -15,6 +15,10 @@ module RPH
       # raised when no library is passed into the google_js_library_for() helper
       class MissingLibrary < Error
         message "you must specify which library you want to load"; end
+      
+      # raised when an unsupported library is attempted
+      class InvalidLibrary < Error
+        message "sorry, that library is not supported (see lib/google/constants.rb for supported libraries)"; end
     end
   end
 end

@@ -14,6 +14,7 @@ module RPH
       class Library
         def initialize(library, options={})
           raise(MissingLibrary, MissingLibrary.message) if library.blank?
+          raise(InvalidLibrary, InvalidLibrary.message) unless GOOGLE_LIBRARIES.symbolize_keys.keys.include?(library.to_sym)
           
           # load the OpenStruct representation
           # of the desired js library
