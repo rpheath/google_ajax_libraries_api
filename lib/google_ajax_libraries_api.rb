@@ -58,7 +58,7 @@ module RPH
           
           
           # if only a single library is passed in, avoid the overhead of
-          # 'returning'; otherwise, if multiple versions are passed in, 
+          # 'returning'; otherwise, if multiple libraries are passed in, 
           # delete the :version option from the options hash, as it plays
           # no role for multiple libraries.
           if libraries.size == 1
@@ -74,8 +74,8 @@ module RPH
           end.join("\n")
         end
         
-        # generate convenience helpers for each library based on the
-        # GOOGLE_LIBRARIES hash.
+        # generate convenience helpers for each library based on
+        # the GOOGLE_LIBRARIES hash.
         #
         # Example(s):
         #   <%= google_jquery -%>
