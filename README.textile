@@ -15,7 +15,7 @@ There are a couple of ways to get access to your library of choice. At this poin
 <%= google_dojo :version => '1.1.1', :uncompressed => true -%>
 </pre></code>
 
-You get the idea. By default, the version will be the highest version out. For instance, jQuery has two supported versions right now: 1.2.3 and 1.2.6. If you want to use 1.2.6, just use @<%= google_jquery -%>@.
+You get the idea. By default, the version will be the highest version supported. For instance, jQuery has two supported versions right now: 1.2.3 and 1.2.6. If you want to use 1.2.6, just use @<%= google_jquery -%>@.
 
 If you need/want to load a few libraries at once, use the @google_js_library_for()@ helper, like so:
 
@@ -30,7 +30,7 @@ I'm sure the code could be improved upon, as I wrote this farely quickly because
 
 h2. Keeping up-to-date
 
-Google is usually on top of things. I'm sure they'll be supporting more and more libraries as they come out (or become more popular). Fortunately, it's easy to add a new library to this plugin. Just modify the code located in lib/google/constants.rb, mimicking the existing library format. (Note: adding a new library in constants.rb will dynamically create a @google_newlib@ helper, so there's nothing else that needs to be done!)
+Google is usually on top of things. I'm sure they'll be supporting more and more libraries as they come out (or become more popular). Fortunately, it's easy to add a new library to this plugin. Just modify the code located in lib/google_ajax_libraries_api/constants.rb, mimicking the existing library format. (Note: adding a new library in constants.rb will dynamically create a @google_newlib@ helper, so there's nothing else that needs to be done!)
 
 h2. License
 
