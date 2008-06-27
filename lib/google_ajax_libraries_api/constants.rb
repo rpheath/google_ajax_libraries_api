@@ -15,7 +15,7 @@ module RPH
       
       # update this hash constant when new libraries are
       # added or new versions are supported
-      GOOGLE_LIBRARIES = {
+      GOOGLE_LIBRARIES = HashWithIndifferentAccess.new({
         JQUERY => OpenStruct.new(
           :name => JQUERY, 
           :path => "#{BASE_PATH}/#{JQUERY}/VERSION/jquery.min.js",
@@ -51,10 +51,7 @@ module RPH
           :versions => ['1.1.1'],
           :default_version => '1.1.1'
         )
-      }
-      
-      # fix so that GOOGLE_LIBRARIES[:jquery] == GOOGLE_LIBRARIES['jquery']
-      GOOGLE_LIBRARIES = HashWithIndifferentAccess.new(GOOGLE_LIBRARIES)
+      })
     end
   end
 end
