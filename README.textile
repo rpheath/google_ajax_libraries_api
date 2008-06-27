@@ -19,7 +19,10 @@ You get the idea. By default, the version will be the highest version out. For i
 
 If you need/want to load a few libraries at once, use the @google_js_library_for()@ helper, like so:
 
-<pre><code><%= google_js_library_for :prototype, :scriptaculous, :jquery -%></code></pre>
+<pre><code>
+<%= google_js_library_for :prototype, :scriptaculous, :jquery -%>
+<%= google_js_library_for :prototype, :scriptaculous, :jquery, :uncompressed => true -%>
+</code></pre>
 
 Pretty straight-forward. I should note, though, if you're specifying a few libraries at once, the @:version@ option becomes irrelevant, as I'd have no clue which library you were specifying a version for. And if you pass the @:uncompressed@ option, it will apply to all libraries that support an uncompressed version.
 
