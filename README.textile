@@ -1,8 +1,33 @@
 h1. Google Ajax Libraries API (for Rails)
 
-http://code.google.com/apis/ajaxlibs/
+The AJAX Libraries API is a content distribution network and loading architecture for the most popular open source JavaScript libraries. (See "http://code.google.com/apis/ajaxlibs/":http://code.google.com/apis/ajaxlibs/ for more details)
 
-(to be continued...)
+This is nothing more than a Rails plugin that provides a convenient interface for these libraries.
+
+h2. Usage
+
+There are a couple of ways to get access to your library of choice. At this point, there are five supported libraries: jquery, prototype, scriptaculous, mootools, and dojo. This plugin supports them all. To include a library, you can use the convenience helpers in the head of your layout:
+
+<pre><code>
+<%= google_mootools -%>
+<%= google_jquery :version => '1.2.3' -%>
+<%= google_prototype :uncompressed => true -%>
+<%= google_dojo :version => '1.1.1', :uncompressed => true -%>
+</pre></code>
+
+You get the idea. By default, the version will be the highest version out. For instance, jQuery has two supported versions right now: 1.2.3 and 1.2.6. If you want to use 1.2.6, just use @<%= google_jquery -%>@.
+
+If you need/want to load a few libraries at once, use the @google_js_library_for()@ helper, like so:
+
+<pre><code><%= google_js_library_for :prototype, :scriptaculous, :jquery -%></code></pre>
+
+Pretty straight-forward. I should note, though, if you're specifying a few libraries at once, the @:version@ option becomes irrelevant, as I'd have no clue which library you were specifying a version for. And if you pass the @:uncompressed@ option, it will apply to all libraries that support an uncompressed version.
+
+I'm sure the code could be improved upon, as I wrote this farely quickly because I started using it in a few of my projects. Feel free to suggest changes and/or "fork and improve".
+
+h2. Keeping up-to-date
+
+Google is usually on top of things. I'm sure they'll be supporting more and more libraries as they come out (or become more popular). Fortunately, it's easy to add a new library to this plugin. Just modify the code located in lib/google/constants.rb, mimicking the existing library format. (Note: adding a new library in constants.rb will dynamically create a @google_newlib@ helper, so there's nothing else that needs to be done!)
 
 h2. License
 
