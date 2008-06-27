@@ -42,10 +42,10 @@ module RPH
           end.join("\n")
         end
         
-        GOOGLE_LIBRARIES.keys.each do |key|
+        GOOGLE_LIBRARIES.keys.each do |lib|
           eval <<-METHOD
-            def google_#{key.to_s}(options={})
-              javascript_include_tag(Library.new(:#{key.to_s}, options).path)
+            def google_#{lib.to_s}(options={})
+              javascript_include_tag(Library.new(:#{lib.to_s}, options).path)
             end
           METHOD
         end
