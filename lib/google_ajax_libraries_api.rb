@@ -53,13 +53,15 @@ module RPH
         # works, however, it will load the uncompressed versions of all the
         # libraries that support it.
         def google_js_library_for(*libraries)
+          raise(MissingLibrary, MissingLibrary.message) if libraries.blank?
           options = libraries.last.is_a?(Hash) ? libraries.pop : {}
+          
           
           # if only a single library is passed in, avoid the overhead of
           # 'returning'; otherwise, if multiple versions are passed in, 
           # delete the :version option from the options hash, as it plays
           # no role for multiple libraries.
-          if libraries.size == 1
+          if libraries.size == 1 && !libraries.first.is_a?(Hash)
             return javascript_include_tag(Library.new(libraries.first, options).path)
           else
             options.delete(:version)
