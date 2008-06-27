@@ -2,6 +2,8 @@
   require File.join(File.dirname(__FILE__), "google/#{f}")
 end
 
+# Implements Google Ajax Libraries API as a Rails plugin
+# (http://code.google.com/apis/ajaxlibs/)
 module RPH
   module Google
     module AjaxLibraries
@@ -13,10 +15,20 @@ module RPH
         def initialize(library, options={})
           raise(MissingLibrary, MissingLibrary.message) if library.blank?
           
+          # load the OpenStruct representation
+          # of the desired js library
           @library = GOOGLE_LIBRARIES[library]
+          
+          # get the options
+          # - :version => '0.0.0'
+          # - :uncompressed => true
           @options = options
         end
         
+        # returns the appropriate path based on version and
+        # the uncompressed flag
+        #
+        # Default: highest supported version and compressed
         def path
           version = @options[:version] || @library.default_version
           raise(InvalidVersion, InvalidVersion.message) unless @library.versions.include?(version)
@@ -26,9 +38,26 @@ module RPH
       end
       
       module InstanceMethods
+        # Example(s):
+        #   <%= google_js_library_for :jquery -%>
+        #   <%= google_js_library_for :jquery, :version => '1.2.3' -%>
+        #   <%= google_js_library_for :jquery, :uncompressed => true -%>
+        #
+        # If you want to pass multiple libraries at once, use this helper:
+        #   <%= google_js_library_for :prototype, :scriptaculous, :jquery -%>
+        #
+        # Note: when passing multiple libraries, the :version option becomes
+        # irrelevant, as it'd be too difficult to know which library the 
+        # specified version was intended for. The :uncompressed option still
+        # works, however, it will load the uncompressed versions of all the
+        # libraries that support it.
         def google_js_library_for(*libraries)
           options = libraries.last.is_a?(Hash) ? libraries.pop : {}
           
+          # if only a single library is passed in, avoid the overhead of
+          # 'returning'; otherwise, if multiple versions are passed in, 
+          # delete the :version option from the options hash, as it plays
+          # no role for multiple libraries.
           if libraries.size == 1
             return javascript_include_tag(Library.new(libraries.first, options).path)
           else
@@ -42,6 +71,15 @@ module RPH
           end.join("\n")
         end
         
+        # generate convenience helpers for each library based on the
+        # GOOGLE_LIBRARIES hash.
+        #
+        # Example(s):
+        #   <%= google_jquery -%>
+        #   <%= google_dojo :version => '1.1.2' -%>
+        #   <%= google_mootools :uncompressed => true -%>
+        #
+        # Default: highest supported version and compressed
         GOOGLE_LIBRARIES.keys.each do |lib|
           eval <<-METHOD
             def google_#{lib.to_s}(options={})
