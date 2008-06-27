@@ -9,7 +9,7 @@ module RPH
         base.send :include, InstanceMethods
       end
       
-      class Api
+      class Library
         def initialize(library, options={})
           raise(MissingLibrary, MissingLibrary.message) if library.blank?
           
@@ -30,14 +30,14 @@ module RPH
           options = libraries.last.is_a?(Hash) ? libraries.pop : {}
           
           if libraries.size == 1
-            return javascript_include_tag(Api.new(libraries.first, options).path)
+            return javascript_include_tag(Library.new(libraries.first, options).path)
           else
             options.delete(:version)
           end
           
           returning [] do |js|
             libraries.each do |lib|
-              js << javascript_include_tag(Api.new(lib, options).path)
+              js << javascript_include_tag(Library.new(lib, options).path)
             end
           end.join("\n")
         end
@@ -45,7 +45,7 @@ module RPH
         GOOGLE_LIBRARIES.keys.each do |key|
           eval <<-METHOD
             def google_#{key.to_s}(options={})
-              javascript_include_tag(Api.new(:#{key.to_s}, options).path)
+              javascript_include_tag(Library.new(:#{key.to_s}, options).path)
             end
           METHOD
         end
