@@ -13,8 +13,8 @@ describe "RPH::Google::AjaxLibraries" do
     ActionView::Base.included_modules.include?(RPH::Google::AjaxLibraries).should be_true
   end
   
-  it "should respond to 'google_js_library_for()' helper" do
-    ActionView::Base.new.should respond_to(:google_js_library_for)
+  it "should respond to 'google_javascripts()' helper" do
+    ActionView::Base.new.should respond_to(:google_javascripts)
   end
   
   it "should have a helper for each library" do
@@ -25,19 +25,19 @@ describe "RPH::Google::AjaxLibraries" do
   
   describe "errors" do    
     it "should raise MissingLibrary error if no library is passed" do
-      @helper.google_js_library_for() rescue @module::MissingLibrary; true
+      @helper.google_javascripts() rescue @module::MissingLibrary; true
     end
     
     it "should raise MissingLibrary error if only options are passed" do
-      @helper.google_js_library_for(:version => '1.2.3') rescue @module::MissingLibrary; true
+      @helper.google_javascripts(:version => '1.2.3') rescue @module::MissingLibrary; true
     end
     
     it "should raise InvalidLibrary error if a non-supported library is specified" do
-      @helper.google_js_library_for(:yui) rescue @module::InvalidLibrary; true
+      @helper.google_javascripts(:yui) rescue @module::InvalidLibrary; true
     end
     
     it "should raise InvalidVersion error if a non-supported version is specified" do
-      @helper.google_js_library_for(:jquery, :version => '0.0.0') rescue @module::InvalidVersion; true
+      @helper.google_javascripts(:jquery, :version => '0.0.0') rescue @module::InvalidVersion; true
     end
     
     it "should raise InvalidVersion error if a non-supported version is specified" do
@@ -67,8 +67,8 @@ describe "RPH::Google::AjaxLibraries" do
     libs[:jquery].should == libs['jquery']
   end
   
-  it "should support multiple versions when using 'google_js_library_for()' helper" do
-    @helper.google_js_library_for(:jquery, :version => '1.2.3').
+  it "should support multiple versions when using 'google_javascripts()' helper" do
+    @helper.google_javascripts(:jquery, :version => '1.2.3').
       should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js\" type=\"text/javascript\"></script>")
   end
   
@@ -77,8 +77,8 @@ describe "RPH::Google::AjaxLibraries" do
       should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js\" type=\"text/javascript\"></script>")
   end
   
-  it "should support uncompressed versions when using 'google_js_library_for()' helper" do
-    @helper.google_js_library_for(:jquery, :uncompressed => true).
+  it "should support uncompressed versions when using 'google_javascripts()' helper" do
+    @helper.google_javascripts(:jquery, :uncompressed => true).
       should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js\" type=\"text/javascript\"></script>")
   end
   
@@ -87,8 +87,8 @@ describe "RPH::Google::AjaxLibraries" do
       should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js\" type=\"text/javascript\"></script>")
   end
   
-  it "should support multiple versions and uncompressed at once using 'google_js_library_for()' helper" do
-    @helper.google_js_library_for(:jquery, :version => '1.2.3', :uncompressed => true).
+  it "should support multiple versions and uncompressed at once using 'google_javascripts()' helper" do
+    @helper.google_javascripts(:jquery, :version => '1.2.3', :uncompressed => true).
       should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.js\" type=\"text/javascript\"></script>")
   end
   
@@ -98,7 +98,7 @@ describe "RPH::Google::AjaxLibraries" do
   end
   
   it "should support multiple libraries at once" do
-    @helper.google_js_library_for(:prototype, :scriptaculous, :jquery).
+    @helper.google_javascripts(:prototype, :scriptaculous, :jquery).
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
@@ -107,7 +107,7 @@ describe "RPH::Google::AjaxLibraries" do
   end
   
   it "should make the :version option irrelevent when loading multiple libraries at once" do
-    @helper.google_js_library_for(:prototype, :scriptaculous, :jquery, :version => '1.2.3').
+    @helper.google_javascripts(:prototype, :scriptaculous, :jquery, :version => '1.2.3').
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
@@ -116,7 +116,7 @@ describe "RPH::Google::AjaxLibraries" do
   end
   
   it "should support uncompressed versions of all applicable when loading multiple libraries at once" do
-    @helper.google_js_library_for(:prototype, :dojo, :jquery, :uncompressed => true).
+    @helper.google_javascripts(:prototype, :dojo, :jquery, :uncompressed => true).
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>\n" + 
         "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.1.1/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 

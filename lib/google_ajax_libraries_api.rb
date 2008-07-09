@@ -40,19 +40,19 @@ module RPH
       
       module InstanceMethods
         # Example(s):
-        #   <%= google_js_library_for :jquery -%>
-        #   <%= google_js_library_for :jquery, :version => '1.2.3' -%>
-        #   <%= google_js_library_for :jquery, :uncompressed => true -%>
+        #   <%= google_javascripts :jquery -%>
+        #   <%= google_javascripts :jquery, :version => '1.2.3' -%>
+        #   <%= google_javascripts :jquery, :uncompressed => true -%>
         #
         # If you want to pass multiple libraries at once, use this helper:
-        #   <%= google_js_library_for :prototype, :scriptaculous, :jquery -%>
+        #   <%= google_javascripts :prototype, :scriptaculous, :jquery -%>
         #
         # Note: when passing multiple libraries, the :version option becomes
         # irrelevant, as it'd be too difficult to know which library the 
         # specified version was intended for. The :uncompressed option still
         # works, however, it will load the uncompressed versions of all the
         # libraries that support it.
-        def google_js_library_for(*libraries)
+        def google_javascripts(*libraries)
           raise(MissingLibrary, MissingLibrary.message) if libraries.blank? || libraries.first.is_a?(Hash)
           options = libraries.last.is_a?(Hash) ? libraries.pop : {}
           

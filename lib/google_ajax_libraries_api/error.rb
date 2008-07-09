@@ -12,7 +12,7 @@ module RPH
       class InvalidVersion < Error
         message "sorry, that version is not supported"; end
       
-      # raised when no library is passed into the google_js_library_for() helper
+      # raised when no library is passed into the google_javascripts() helper
       class MissingLibrary < Error
         message "you must specify which library you want to load"; end
       

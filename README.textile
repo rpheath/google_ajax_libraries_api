@@ -17,11 +17,11 @@ There are a couple of ways to get access to your library of choice. At this poin
 
 You get the idea. By default, the version will be the highest version supported. For instance, jQuery has two supported versions right now: 1.2.3 and 1.2.6. If you want to use 1.2.6, just use @<%= google_jquery -%>@.
 
-If you need/want to load a few libraries at once, use the @google_js_library_for()@ helper, like so:
+If you need/want to load a few libraries at once, use the @google_javascripts()@ helper, like so:
 
 <pre><code>
-<%= google_js_library_for :prototype, :scriptaculous, :jquery -%>
-<%= google_js_library_for :prototype, :scriptaculous, :jquery, :uncompressed => true -%>
+<%= google_javascripts :prototype, :scriptaculous, :jquery -%>
+<%= google_javascripts :prototype, :scriptaculous, :jquery, :uncompressed => true -%>
 </code></pre>
 
 Pretty straight-forward. I should note, though, if you're specifying a few libraries at once, the @:version@ option becomes irrelevant, as I'd have no clue which library you were specifying a version for. And if you pass the @:uncompressed@ option, it will apply to all libraries that support an uncompressed version.
