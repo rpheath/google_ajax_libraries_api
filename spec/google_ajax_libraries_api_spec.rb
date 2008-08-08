@@ -62,6 +62,38 @@ describe "RPH::Google::AjaxLibraries" do
     end
   end
   
+  describe "all supported libraries with default version" do
+    it "should map to the jquery google api url" do
+      @helper.google_jquery.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js\" type=\"text/javascript\"></script>")
+    end
+  
+    it "should map to the jquery-ui google api url" do
+      @helper.google_jqueryui.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js\" type=\"text/javascript\"></script>")
+    end
+  
+    it "should map to the prototype google api url" do
+      @helper.google_prototype.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>")
+    end
+  
+    it "should map to the scriptaculous google api url" do
+      @helper.google_scriptaculous.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js\" type=\"text/javascript\"></script>")
+    end
+  
+    it "should map to the mootools google api url" do
+      @helper.google_mootools.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js\" type=\"text/javascript\"></script>")
+    end
+  
+    it "should map to the dojo google api url" do
+      @helper.google_dojo.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.1.1/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
+    end
+  end
+  
   it "should allow library access via symbol or string" do
     libs = @module::GOOGLE_LIBRARIES
     libs[:jquery].should == libs['jquery']

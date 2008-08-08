@@ -9,13 +9,14 @@ module RPH
       
       # unnecessarily complex way to set constants for each
       # of the supported libraries
-      %w(jquery prototype scriptaculous mootools dojo).each do |lib|
+      %w(jquery jqueryui prototype scriptaculous mootools dojo).each do |lib|
         const_set lib.upcase, lib
       end
       
       # used to maintain supported library versions
       SUPPORTED_VERSIONS = {
         JQUERY        => ['1.2.3', '1.2.6'],
+        JQUERYUI      => ['1.5.2'],
         PROTOTYPE     => ['1.6.0.2'],
         SCRIPTACULOUS => ['1.8.1'],
         MOOTOOLS      => ['1.11'],
@@ -31,6 +32,13 @@ module RPH
           :pathu => "#{BASE_PATH}/#{JQUERY}/VERSION/jquery.js",
           :versions => SUPPORTED_VERSIONS[JQUERY],
           :default_version => SUPPORTED_VERSIONS[JQUERY].max
+        ),
+        JQUERYUI => OpenStruct.new(
+          :name => JQUERYUI,
+          :path => "#{BASE_PATH}/#{JQUERYUI}/VERSION/jquery-ui.min.js",
+          :pathu => "#{BASE_PATH}/#{JQUERYUI}/VERSION/jquery-ui.js",
+          :versions => SUPPORTED_VERSIONS[JQUERYUI],
+          :default_version => SUPPORTED_VERSIONS[JQUERYUI].max
         ),
         PROTOTYPE => OpenStruct.new(
           :name => PROTOTYPE, 
@@ -50,7 +58,7 @@ module RPH
           :name => MOOTOOLS, 
           :path => "#{BASE_PATH}/#{MOOTOOLS}/VERSION/mootools-yui-compressed.js",
           :pathu => "#{BASE_PATH}/#{MOOTOOLS}/VERSION/mootools.js",
-          :vesions => SUPPORTED_VERSIONS[MOOTOOLS],
+          :versions => SUPPORTED_VERSIONS[MOOTOOLS],
           :default_version => SUPPORTED_VERSIONS[MOOTOOLS].max
         ),
         DOJO => OpenStruct.new(
