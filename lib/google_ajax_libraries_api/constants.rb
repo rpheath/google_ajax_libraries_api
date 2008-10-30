@@ -19,7 +19,7 @@ module RPH
         JQUERYUI      => ['1.5.2'],
         PROTOTYPE     => ['1.6.0.2'],
         SCRIPTACULOUS => ['1.8.1'],
-        MOOTOOLS      => ['1.11'],
+        MOOTOOLS      => ['1.11', '1.2.1'],
         DOJO          => ['1.1.1']
       }      
       

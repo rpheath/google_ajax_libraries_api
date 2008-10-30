@@ -85,7 +85,7 @@ describe "RPH::Google::AjaxLibraries" do
   
     it "should map to the mootools google api url" do
       @helper.google_mootools.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/mootools/1.2.1/mootools-yui-compressed.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the dojo google api url" do
