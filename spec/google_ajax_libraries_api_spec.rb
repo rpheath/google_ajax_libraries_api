@@ -92,6 +92,11 @@ describe "RPH::Google::AjaxLibraries" do
       @helper.google_dojo.
         should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.1.1/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
     end
+    
+    it "should map to the swfobject google api url" do
+      @helper.google_swfobject.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js\" type=\"text/javascript\"></script>")
+    end
   end
   
   it "should allow library access via symbol or string" do

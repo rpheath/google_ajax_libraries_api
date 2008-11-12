@@ -9,7 +9,7 @@ module RPH
       
       # unnecessarily complex way to set constants for each
       # of the supported libraries
-      %w(jquery jqueryui prototype scriptaculous mootools dojo).each do |lib|
+      %w(jquery jqueryui prototype scriptaculous mootools dojo swfobject).each do |lib|
         const_set lib.upcase, lib
       end
       
@@ -20,7 +20,8 @@ module RPH
         PROTOTYPE     => ['1.6.0.2'],
         SCRIPTACULOUS => ['1.8.1'],
         MOOTOOLS      => ['1.11', '1.2.1'],
-        DOJO          => ['1.1.1']
+        DOJO          => ['1.1.1'],
+        SWFOBJECT     => ['2.1']
       }      
       
       # update this hash constant when new libraries are
@@ -67,6 +68,13 @@ module RPH
           :pathu => "#{BASE_PATH}/#{DOJO}/VERSION/dojo/dojo.xd.js.uncompressed.js",
           :versions => SUPPORTED_VERSIONS[DOJO],
           :default_version => SUPPORTED_VERSIONS[DOJO].max
+        ),
+        SWFOBJECT => OpenStruct.new(
+          :name => SWFOBJECT,
+          :path => "#{BASE_PATH}/#{SWFOBJECT}/VERSION/swfobject.js",
+          :pathu => "#{BASE_PATH}/#{SWFOBJECT}/VERSION/swfobject_src.js",
+          :versions => SUPPORTED_VERSIONS[SWFOBJECT],
+          :default_version => SUPPORTED_VERSIONS[SWFOBJECT].max
         )
       })
     end
