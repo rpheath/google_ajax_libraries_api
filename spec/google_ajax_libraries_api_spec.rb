@@ -80,7 +80,7 @@ describe "RPH::Google::AjaxLibraries" do
   
     it "should map to the scriptaculous google api url" do
       @helper.google_scriptaculous.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the mootools google api url" do
@@ -138,7 +138,7 @@ describe "RPH::Google::AjaxLibraries" do
     @helper.google_javascripts(:prototype, :scriptaculous, :jquery).
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>\n" +
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js\" type=\"text/javascript\"></script>"
       )
   end
@@ -147,7 +147,7 @@ describe "RPH::Google::AjaxLibraries" do
     @helper.google_javascripts(:prototype, :scriptaculous, :jquery, :version => '1.2.3').
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>\n" +
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js\" type=\"text/javascript\"></script>"
       )
   end
