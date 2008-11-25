@@ -97,6 +97,11 @@ describe "RPH::Google::AjaxLibraries" do
       @helper.google_swfobject.
         should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js\" type=\"text/javascript\"></script>")
     end
+    
+    it "should map to the YUI google api url" do
+      @helper.google_yui.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/yui/2.6.0/build/yuiloader/yuiloader-min.js\" type=\"text/javascript\"></script>")
+    end
   end
   
   it "should allow library access via symbol or string" do
