@@ -18,7 +18,7 @@ module RPH
         JQUERY        => ['1.2.3', '1.2.6'],
         JQUERYUI      => ['1.5.2'],
         PROTOTYPE     => ['1.6.0.2'],
-        SCRIPTACULOUS => ['1.8.1'],
+        SCRIPTACULOUS => ['1.8.1', '1.8.2'],
         MOOTOOLS      => ['1.11', '1.2.1'],
         DOJO          => ['1.1.1'],
         SWFOBJECT     => ['2.1']
