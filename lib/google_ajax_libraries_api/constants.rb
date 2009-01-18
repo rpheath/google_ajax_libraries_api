@@ -16,11 +16,11 @@ module RPH
       # used to maintain supported library versions
       SUPPORTED_VERSIONS = {
         JQUERY        => ['1.2.3', '1.2.6', '1.3.0'],
-        JQUERYUI      => ['1.5.2'],
-        PROTOTYPE     => ['1.6.0.2'],
+        JQUERYUI      => ['1.5.2', '1.5.3'],
+        PROTOTYPE     => ['1.6.0.2', '1.6.0.3'],
         SCRIPTACULOUS => ['1.8.1', '1.8.2'],
         MOOTOOLS      => ['1.11', '1.2.1'],
-        DOJO          => ['1.1.1'],
+        DOJO          => ['1.1.1', '1.2.0', '1.2.3'],
         SWFOBJECT     => ['2.1'],
         YUI           => ['2.6.0']
       }      

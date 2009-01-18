@@ -70,12 +70,12 @@ describe "RPH::Google::AjaxLibraries" do
   
     it "should map to the jquery-ui google api url" do
       @helper.google_jqueryui.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the prototype google api url" do
       @helper.google_prototype.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the scriptaculous google api url" do
@@ -90,7 +90,7 @@ describe "RPH::Google::AjaxLibraries" do
   
     it "should map to the dojo google api url" do
       @helper.google_dojo.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.1.1/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.2.3/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
     end
     
     it "should map to the swfobject google api url" do
@@ -142,7 +142,7 @@ describe "RPH::Google::AjaxLibraries" do
   it "should support multiple libraries at once" do
     @helper.google_javascripts(:prototype, :scriptaculous, :jquery).
       should eql(
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>\n" +
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js\" type=\"text/javascript\"></script>"
       )
@@ -151,7 +151,7 @@ describe "RPH::Google::AjaxLibraries" do
   it "should make the :version option irrelevent when loading multiple libraries at once" do
     @helper.google_javascripts(:prototype, :scriptaculous, :jquery, :version => '1.2.3').
       should eql(
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>\n" +
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js\" type=\"text/javascript\"></script>"
       )
@@ -160,8 +160,8 @@ describe "RPH::Google::AjaxLibraries" do
   it "should support uncompressed versions of all applicable when loading multiple libraries at once" do
     @helper.google_javascripts(:prototype, :dojo, :jquery, :uncompressed => true).
       should eql(
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js\" type=\"text/javascript\"></script>\n" + 
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.1.1/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js\" type=\"text/javascript\"></script>\n" + 
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.2.3/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 
         "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.js\" type=\"text/javascript\"></script>"
       )
   end
