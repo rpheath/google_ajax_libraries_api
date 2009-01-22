@@ -65,7 +65,7 @@ describe "RPH::Google::AjaxLibraries" do
   describe "all supported libraries with default version" do
     it "should map to the jquery google api url" do
       @helper.google_jquery.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the jquery-ui google api url" do
@@ -121,12 +121,12 @@ describe "RPH::Google::AjaxLibraries" do
   
   it "should support uncompressed versions when using 'google_javascripts()' helper" do
     @helper.google_javascripts(:jquery, :uncompressed => true).
-      should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.js\" type=\"text/javascript\"></script>")
+      should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.js\" type=\"text/javascript\"></script>")
   end
   
   it "should support uncompressed versions when using 'google_<library>' helper" do
     @helper.google_jquery(:uncompressed => true).
-      should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.js\" type=\"text/javascript\"></script>")
+      should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.js\" type=\"text/javascript\"></script>")
   end
   
   it "should support multiple versions and uncompressed at once using 'google_javascripts()' helper" do
@@ -144,7 +144,7 @@ describe "RPH::Google::AjaxLibraries" do
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js\" type=\"text/javascript\"></script>"
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js\" type=\"text/javascript\"></script>"
       )
   end
   
@@ -153,7 +153,7 @@ describe "RPH::Google::AjaxLibraries" do
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js\" type=\"text/javascript\"></script>"
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js\" type=\"text/javascript\"></script>"
       )
   end
   
@@ -162,7 +162,7 @@ describe "RPH::Google::AjaxLibraries" do
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js\" type=\"text/javascript\"></script>\n" + 
         "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.2.3/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.js\" type=\"text/javascript\"></script>"
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.js\" type=\"text/javascript\"></script>"
       )
   end
 end
