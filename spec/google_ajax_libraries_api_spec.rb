@@ -62,6 +62,16 @@ describe "RPH::Google::AjaxLibraries" do
     end
   end
   
+  describe "local access" do
+    it "should load from the local directory if told to do so" do
+      @helper.google_jquery(:local => true).
+        should eql("<script src=\"/javascripts/jquery.js\" type=\"text/javascript\"></script>")
+        
+      @helper.google_prototype(:local => true).
+        should eql("<script src=\"/javascripts/prototype.js\" type=\"text/javascript\"></script>")
+    end
+  end
+  
   describe "all supported libraries with default version" do
     it "should map to the jquery google api url" do
       @helper.google_jquery.

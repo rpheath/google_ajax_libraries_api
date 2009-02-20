@@ -56,7 +56,6 @@ module RPH
           raise(MissingLibrary, MissingLibrary.message) if libraries.blank? || libraries.first.is_a?(Hash)
           options = libraries.last.is_a?(Hash) ? libraries.pop : {}
           
-          
           # if only a single library is passed in, avoid the overhead of
           # 'returning'; otherwise, if multiple libraries are passed in, 
           # delete the :version option from the options hash, as it plays
@@ -86,7 +85,8 @@ module RPH
         GOOGLE_LIBRARIES.keys.each do |lib|
           eval <<-METHOD
             def google_#{lib.to_s}(options={})
-              javascript_include_tag(Library.new(:#{lib.to_s}, options).path)
+              library = options.delete(:local) ? '#{lib.to_s}' : Library.new(:#{lib.to_s}, options).path
+              javascript_include_tag(library)
             end
           METHOD
         end

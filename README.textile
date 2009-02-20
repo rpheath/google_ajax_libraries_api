@@ -28,6 +28,14 @@ Pretty straight-forward. I should note, though, if you're specifying a few libra
 
 I'm sure the code could be improved upon, as I wrote this farely quickly because I started using it in a few of my projects. Feel free to suggest changes and/or "fork and improve".
 
+h2. Got Internet?
+
+In the rare event that your internet connection has gone missing (it happens, believe it or not), you can specify to load the file from your local javascripts folder by passing the @:local@ option.
+
+<pre><code><%= google_jquery :local => true %></code></pre>
+
+This would just look for 'jquery.js' in your public/javascripts folder. In the event that you don't have a local copy, well, I guess you won't be doing any javascript :-)
+
 h2. Keeping up-to-date
 
 Google is usually on top of things. I'm sure they'll be supporting more and more libraries as they come out (or become more popular). Fortunately, it's easy to add a new library to this plugin. Just modify the code located in lib/google_ajax_libraries_api/constants.rb, mimicking the existing library format. (Note: adding a new library in constants.rb will dynamically create a @google_newlib@ helper, so there's nothing else that needs to be done!)
