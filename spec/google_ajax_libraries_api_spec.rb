@@ -80,7 +80,7 @@ describe "RPH::Google::AjaxLibraries" do
   
     it "should map to the jquery-ui google api url" do
       @helper.google_jqueryui.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/jquery-ui.min.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the prototype google api url" do
