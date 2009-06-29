@@ -9,8 +9,8 @@ module RPH
       
       # unnecessarily complex way to set constants for each
       # of the supported libraries
-      %w(jquery jqueryui prototype scriptaculous mootools dojo swfobject yui).each do |lib|
-        const_set lib.upcase, lib
+      %w(jquery jqueryui prototype scriptaculous mootools dojo swfobject yui ext_core).each do |lib|
+        const_set lib.upcase.gsub('-', '_'), lib
       end
       
       # used to maintain supported library versions
@@ -22,7 +22,8 @@ module RPH
         MOOTOOLS      => ['1.11', '1.2.1', '1.2.2', '1.2.3'],
         DOJO          => ['1.1.1', '1.2.0', '1.2.3', '1.3.0', '1.3.1'],
         SWFOBJECT     => ['2.1', '2.2'],
-        YUI           => ['2.6.0', '2.7.0']
+        YUI           => ['2.6.0', '2.7.0'],
+        EXT_CORE      => ['3.0.0']
       }      
       
       # update this hash constant when new libraries are
@@ -83,6 +84,13 @@ module RPH
           :pathu => "#{BASE_PATH}/#{YUI}/VERSION/build/yuiloader/yuiloader.js",
           :versions => SUPPORTED_VERSIONS[YUI],
           :default_version => SUPPORTED_VERSIONS[YUI].max
+        ),
+        EXT_CORE => OpenStruct.new(
+          :name => EXT_CORE,
+          :path => "#{BASE_PATH}/#{EXT_CORE.gsub('_','-')}/VERSION/ext-core.js",
+          :pathu => "#{BASE_PATH}/#{EXT_CORE.gsub('_','-')}/VERSION/ext-core-debug.js",
+          :versions => SUPPORTED_VERSIONS[EXT_CORE],
+          :default_version => SUPPORTED_VERSIONS[EXT_CORE].max
         )
       })
     end

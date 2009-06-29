@@ -19,7 +19,7 @@ describe "RPH::Google::AjaxLibraries" do
   
   it "should have a helper for each library" do
     @module::GOOGLE_LIBRARIES.keys.each do |library|
-      ActionView::Base.new.should respond_to("google_#{library}")
+      ActionView::Base.new.should respond_to("google_#{library.gsub('-', '_')}")
     end
   end
   
@@ -111,6 +111,11 @@ describe "RPH::Google::AjaxLibraries" do
     it "should map to the YUI google api url" do
       @helper.google_yui.
         should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/yuiloader/yuiloader-min.js\" type=\"text/javascript\"></script>")
+    end
+    
+    it "should map to the ext-core google api url" do
+      @helper.google_ext_core.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/ext-core/3.0.0/ext-core.js\" type=\"text/javascript\"></script>")
     end
   end
   
