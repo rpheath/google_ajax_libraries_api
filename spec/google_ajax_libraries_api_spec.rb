@@ -117,6 +117,11 @@ describe "RPH::Google::AjaxLibraries" do
       @helper.google_ext_core.
         should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/ext-core/3.0.0/ext-core.js\" type=\"text/javascript\"></script>")
     end
+    
+    it "should map to the chrome-frame google api url" do
+      @helper.google_chrome_frame.
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js\" type=\"text/javascript\"></script>")
+    end
   end
   
   it "should allow library access via symbol or string" do

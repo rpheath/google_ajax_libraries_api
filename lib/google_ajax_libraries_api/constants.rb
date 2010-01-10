@@ -9,7 +9,7 @@ module RPH
       
       # unnecessarily complex way to set constants for each
       # of the supported libraries
-      %w(jquery jqueryui prototype scriptaculous mootools dojo swfobject yui ext_core).each do |lib|
+      %w(jquery jqueryui prototype scriptaculous mootools dojo swfobject yui ext_core chrome_frame).each do |lib|
         const_set lib.upcase.gsub('-', '_'), lib
       end
       
@@ -23,7 +23,8 @@ module RPH
         DOJO          => ['1.1.1', '1.2.0', '1.2.3', '1.3.0', '1.3.1', '1.3.2', '1.4.0'],
         SWFOBJECT     => ['2.1', '2.2'],
         YUI           => ['2.6.0', '2.7.0', '2.8.0r4'],
-        EXT_CORE      => ['3.0.0']
+        EXT_CORE      => ['3.0.0'],
+        CHROME_FRAME  => ['1.0.0', '1.0.1', '1.0.2']
       }      
       
       # update this hash constant when new libraries are
@@ -91,6 +92,13 @@ module RPH
           :pathu => "#{BASE_PATH}/#{EXT_CORE.gsub('_','-')}/VERSION/ext-core-debug.js",
           :versions => SUPPORTED_VERSIONS[EXT_CORE],
           :default_version => SUPPORTED_VERSIONS[EXT_CORE].max
+        ),
+        CHROME_FRAME => OpenStruct.new(
+          :name => CHROME_FRAME,
+          :path => "#{BASE_PATH}/#{CHROME_FRAME.gsub('_','-')}/VERSION/CFInstall.min.js",
+          :pathu => "#{BASE_PATH}/#{CHROME_FRAME.gsub('_','-')}/VERSION/CFInstall.js",
+          :versions => SUPPORTED_VERSIONS[CHROME_FRAME],
+          :default_version => SUPPORTED_VERSIONS[CHROME_FRAME].max
         )
       })
     end
