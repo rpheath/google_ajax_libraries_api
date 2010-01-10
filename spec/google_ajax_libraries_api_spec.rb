@@ -90,17 +90,17 @@ describe "RPH::Google::AjaxLibraries" do
   
     it "should map to the scriptaculous google api url" do
       @helper.google_scriptaculous.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the mootools google api url" do
       @helper.google_mootools.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/mootools/1.2.3/mootools-yui-compressed.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the dojo google api url" do
       @helper.google_dojo.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.3.2/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.4.0/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
     end
     
     it "should map to the swfobject google api url" do
@@ -158,7 +158,7 @@ describe "RPH::Google::AjaxLibraries" do
     @helper.google_javascripts(:prototype, :scriptaculous, :jquery).
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js\" type=\"text/javascript\"></script>\n" +
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\" type=\"text/javascript\"></script>"
       )
   end
@@ -167,7 +167,7 @@ describe "RPH::Google::AjaxLibraries" do
     @helper.google_javascripts(:prototype, :scriptaculous, :jquery, :version => '1.2.3').
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js\" type=\"text/javascript\"></script>\n" +
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\" type=\"text/javascript\"></script>"
       )
   end
@@ -176,7 +176,7 @@ describe "RPH::Google::AjaxLibraries" do
     @helper.google_javascripts(:prototype, :dojo, :jquery, :uncompressed => true).
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js\" type=\"text/javascript\"></script>\n" + 
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.3.2/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.4.0/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 
         "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js\" type=\"text/javascript\"></script>"
       )
   end
