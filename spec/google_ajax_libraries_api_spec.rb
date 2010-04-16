@@ -80,7 +80,7 @@ describe "RPH::Google::AjaxLibraries" do
   
     it "should map to the jquery-ui google api url" do
       @helper.google_jqueryui.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the prototype google api url" do
@@ -100,7 +100,7 @@ describe "RPH::Google::AjaxLibraries" do
   
     it "should map to the dojo google api url" do
       @helper.google_dojo.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.4.0/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.4.1/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
     end
     
     it "should map to the swfobject google api url" do
@@ -115,7 +115,7 @@ describe "RPH::Google::AjaxLibraries" do
     
     it "should map to the ext-core google api url" do
       @helper.google_ext_core.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/ext-core/3.0.0/ext-core.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js\" type=\"text/javascript\"></script>")
     end
     
     it "should map to the chrome-frame google api url" do
@@ -181,7 +181,7 @@ describe "RPH::Google::AjaxLibraries" do
     @helper.google_javascripts(:prototype, :dojo, :jquery, :uncompressed => true).
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js\" type=\"text/javascript\"></script>\n" + 
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.4.0/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.4.1/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 
         "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js\" type=\"text/javascript\"></script>"
       )
   end
