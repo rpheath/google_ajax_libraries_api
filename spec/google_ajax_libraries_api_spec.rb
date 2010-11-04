@@ -75,12 +75,12 @@ describe "RPH::Google::AjaxLibraries" do
   describe "all supported libraries with default version" do
     it "should map to the jquery google api url" do
       @helper.google_jquery.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the jquery-ui google api url" do
       @helper.google_jqueryui.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the prototype google api url" do
@@ -95,12 +95,12 @@ describe "RPH::Google::AjaxLibraries" do
   
     it "should map to the mootools google api url" do
       @helper.google_mootools.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/mootools/1.3.0/mootools-yui-compressed.js\" type=\"text/javascript\"></script>")
     end
   
     it "should map to the dojo google api url" do
       @helper.google_dojo.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.4.1/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js\" type=\"text/javascript\"></script>")
     end
     
     it "should map to the swfobject google api url" do
@@ -110,7 +110,7 @@ describe "RPH::Google::AjaxLibraries" do
     
     it "should map to the YUI google api url" do
       @helper.google_yui.
-        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/yui/2.8.0r4/build/yuiloader/yuiloader-min.js\" type=\"text/javascript\"></script>")
+        should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/yui/2.8.2/build/yuiloader/yuiloader-min.js\" type=\"text/javascript\"></script>")
     end
     
     it "should map to the ext-core google api url" do
@@ -141,12 +141,12 @@ describe "RPH::Google::AjaxLibraries" do
   
   it "should support uncompressed versions when using 'google_javascripts()' helper" do
     @helper.google_javascripts(:jquery, :uncompressed => true).
-      should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js\" type=\"text/javascript\"></script>")
+      should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.js\" type=\"text/javascript\"></script>")
   end
   
   it "should support uncompressed versions when using 'google_<library>' helper" do
     @helper.google_jquery(:uncompressed => true).
-      should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js\" type=\"text/javascript\"></script>")
+      should eql("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.js\" type=\"text/javascript\"></script>")
   end
   
   it "should support multiple versions and uncompressed at once using 'google_javascripts()' helper" do
@@ -164,7 +164,7 @@ describe "RPH::Google::AjaxLibraries" do
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js\" type=\"text/javascript\"></script>"
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js\" type=\"text/javascript\"></script>"
       )
   end
   
@@ -173,7 +173,7 @@ describe "RPH::Google::AjaxLibraries" do
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js\" type=\"text/javascript\"></script>\n" +
         "<script src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js\" type=\"text/javascript\"></script>\n" +
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js\" type=\"text/javascript\"></script>"
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js\" type=\"text/javascript\"></script>"
       )
   end
   
@@ -181,8 +181,8 @@ describe "RPH::Google::AjaxLibraries" do
     @helper.google_javascripts(:prototype, :dojo, :jquery, :uncompressed => true).
       should eql(
         "<script src=\"http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js\" type=\"text/javascript\"></script>\n" + 
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.4.1/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 
-        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js\" type=\"text/javascript\"></script>"
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js.uncompressed.js\" type=\"text/javascript\"></script>\n" + 
+        "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.js\" type=\"text/javascript\"></script>"
       )
   end
 end
